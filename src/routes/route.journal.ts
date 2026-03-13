@@ -1,9 +1,14 @@
 import { Router } from "express";
-import { createJournal, getAllJournal } from "../controllers/controller.journal";
+import {
+  anaylyzeJournal,
+  createJournal,
+  getAllJournal,
+} from "../controllers/controller.journal";
 
 const router = Router();
 
-router.get('/:userId', getAllJournal)
+router.get("/:userId", getAllJournal);
 router.post("/", createJournal);
+router.post("/anaylze/:journalId", anaylyzeJournal);
 
 export default router;

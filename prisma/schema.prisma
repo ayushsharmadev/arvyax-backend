@@ -26,7 +26,7 @@ model Analysis {
   journalId String   @unique
   journal   Journal  @relation(fields: [journalId], references: [id])
   emotion   String
-  keyword   String[]
+  keywords   String[]
   summary   String
   createdAt DateTime @default(now())
   @@map("analysis")
