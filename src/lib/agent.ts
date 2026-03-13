@@ -14,10 +14,7 @@ import { sys_prompt } from "../constant";
 
 const ai = new GoogleGenAI({});
 
-export const analysisAgent = async ({
-  journalId,
-  text,
-}: analysisAgentInput): Promise<analysisAgentResponse> => {
+export const analysisAgent = async (text:string): Promise<analysisAgentResponse> => {
   try {
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
@@ -32,7 +29,7 @@ export const analysisAgent = async ({
         },
       ],
     });
-    console.log("LLM Response ", response.text);
+    
     const parsedAnaylysis = JSON.parse(response.text || "{}");
     return {
       emotion: parsedAnaylysis.emotion,

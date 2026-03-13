@@ -11,13 +11,20 @@ datasource db {
   provider = "postgresql"
 }
 
+enum AmbienceEnum {
+  forest
+  ocean
+  mountain
+}
+
 model Journal {
-  id        String     @id @default(uuid())
+  id        String       @id @default(uuid())
   userId    String
-  ambience  String
+  ambience  AmbienceEnum
   text      String
-  createdAt DateTime   @default(now())
+  createdAt DateTime     @default(now())
   analyses  Analysis[]
+
   @@map("journal")
 }
 
@@ -26,8 +33,9 @@ model Analysis {
   journalId String   @unique
   journal   Journal  @relation(fields: [journalId], references: [id])
   emotion   String
-  keywords   String[]
+  keywords  String[]
   summary   String
   createdAt DateTime @default(now())
+
   @@map("analysis")
 }

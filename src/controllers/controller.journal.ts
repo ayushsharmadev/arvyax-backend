@@ -2,9 +2,15 @@ import { Request, Response } from "express";
 import { db } from "../lib/db";
 import { analysisAgent } from "../lib/agent";
 
+interface CreateJournalInput {
+  userId: string;
+  ambience: "forest" | "ocean" | "mountain";
+  text: string;
+}
+
 export const createJournal = async (req: Request, res: Response) => {
   try {
-    const { userId, ambience, text } = req.body;
+    const { userId, ambience, text }: CreateJournalInput = req.body;
 
     if (!userId || !ambience || !text) {
       return res.status(401).json({ message: "All Fields are required!" });
@@ -54,7 +60,7 @@ export const anaylyzeJournal = async (
     if (!text) {
       return res.status(400).json({ message: "text required!" });
     }
-    const response = await analysisAgent({ journalId, text });
+    const response = await analysisAgent(text);
 
     await db.analysis.upsert({
       where: { journalId: journalId },
