@@ -8,14 +8,15 @@ const PORT = Number(process.env.PORT) || 3000;
 
 const app = express();
 
-const corsOptions = {
-  origin: process.env.FRONTEND_URL,
-};
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 app.get("/health", (req, res) => {
   res.json({ success: "ok" });
+});
+
+app.get("/", (req, res) => {
+  res.send("API is running");
 });
 
 app.use("/api/journal", JournalRoutes);
