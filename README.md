@@ -234,3 +234,8 @@ pnpm prisma:push  # Push schema changes to database
 ## License
 
 ISC
+
+
+
+
+pnpm install --frozen-lockfile && pnpm dlx prisma generate && pnpm dlx prisma migrate deploy && pnpm run build && pnpm start
