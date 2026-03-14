@@ -4,7 +4,7 @@ import {
   createJournal,
   getAllJournal,
   userInsights,
-} from "../controllers/controller.journal";
+} from "../controllers/controller.journal.js";
 
 const router = Router();
 

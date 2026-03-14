@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { db } from "../lib/db";
-import { analysisAgent } from "../lib/agent";
+import { db } from "../lib/db.js";
+import { analysisAgent } from "../lib/agent.js";
 
 interface CreateJournalInput {
   userId: string;

@@ -10,7 +10,7 @@ type analysisAgentResponse = {
 };
 
 import { GoogleGenAI } from "@google/genai";
-import { sys_prompt } from "../constant";
+import { sys_prompt } from "../constant.js";
 
 const ai = new GoogleGenAI({});
 

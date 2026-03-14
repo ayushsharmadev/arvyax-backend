@@ -1,6 +1,6 @@
 import express from "express";
 import { config } from "dotenv";
-import JournalRoutes from "./routes/route.journal";
+import JournalRoutes from "./routes/route.journal.js";
 import cors from "cors";
 config();
 
