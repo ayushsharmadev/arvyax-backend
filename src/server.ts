@@ -8,7 +8,10 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: process.env.FRONTEND_URL
+}
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.get("/health", (req, res) => {
